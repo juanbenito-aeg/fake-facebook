@@ -1,5 +1,5 @@
 import "react-native-gesture-handler";
-import { StatusBar, ScrollView } from "react-native";
+import { StatusBar, View } from "react-native";
 import Header from "./components/Header";
 import Home from "./screens/Home";
 import Friends from "./screens/Friends";
@@ -18,9 +18,9 @@ const App = () => {
     <>
       <StatusBar backgroundColor="#000000" barStyle="dark-content" />
 
-      <ScrollView>
+      <View>
         <Header />
-      </ScrollView>
+      </View>
 
       <NavigationContainer>
         <Tab.Navigator
