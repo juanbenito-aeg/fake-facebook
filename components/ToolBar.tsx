@@ -5,6 +5,7 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 const Container = styled.View`
   width: 100%;
   height: 92px;
+  margin-block-end: 12px;
 `;
 
 const Row = styled.View`
