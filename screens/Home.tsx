@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/native";
 import ToolBar from "../components/ToolBar";
 import MainSeparator from "../components/MainSeparator";
 import Users from "../components/Users";
