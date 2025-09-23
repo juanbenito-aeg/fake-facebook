@@ -1,6 +1,8 @@
 import styled from "styled-components/native";
 import { ScrollView } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import fakeStories from "../data/fakeStories";
+import Avatar from "./Avatar";
 
 const Container = styled.View`
   width: 100%;
@@ -39,17 +41,30 @@ const UserCardFooter = styled.View`
   position: absolute;
   top: 130px;
   left: 0;
-  border: 1px solid #dddddd;
+  border: ${(props) => (props.profile ? "1px solid #dddddd" : 0)};
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  background-color: #ffffff;
+  background-color: ${(props) => (props.profile ? "#ffffff" : "transparent")};
 `;
 
 const Text = styled.Text`
-  padding-top: 15px;
+  padding-top: ${(props) => (props.profile ? "155px" : "45px")};
   font-size: 12px;
   font-weight: bold;
   text-align: center;
+  color: ${(props) => (props.profile ? "#000000" : "ffffff")};
+`;
+
+const UserOnCard = styled.View`
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Story = () => {
@@ -64,14 +79,34 @@ const Story = () => {
           <UserCard>
             <UserCardStory source={require("../assets/images/story.jpg")} />
 
-            <UserCardFooter>
-              <Text>Crear una historia</Text>
+            <UserCardFooter profile={true}>
+              <Text profile={true}>Crear una historia</Text>
             </UserCardFooter>
 
             <UserCardPlus>
               <MaterialCommunityIcons name="plus" size={28} color="#ffffff" />
             </UserCardPlus>
           </UserCard>
+
+          {fakeStories.map((fakeStory, index) => {
+            return (
+              <UserCard key={index}>
+                <UserCardStory source={fakeStory.source} />
+
+                <UserCardFooter profile={false}>
+                  <Text profile={false}>{fakeStory.name}</Text>
+                </UserCardFooter>
+
+                <UserOnCard>
+                  <Avatar
+                    source={fakeStory.user}
+                    story={true}
+                    checked={fakeStory.checked}
+                  />
+                </UserOnCard>
+              </UserCard>
+            );
+          })}
         </ScrollView>
       </Container>
     </>
