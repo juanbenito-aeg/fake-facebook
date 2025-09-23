@@ -52,7 +52,7 @@ const Text = styled.Text`
   font-size: 12px;
   font-weight: bold;
   text-align: center;
-  color: ${(props) => (props.profile ? "#000000" : "ffffff")};
+  color: ${(props) => (props.profile ? "#000000" : "#ffffff")};
 `;
 
 const UserOnCard = styled.View`
