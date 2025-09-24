@@ -1,4 +1,6 @@
 import styled from "styled-components/native";
+import Animated from "react-native-reanimated";
+import * as Animations from "../animations/storyAnimations";
 import { ScrollView } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import fakeStories from "../data/fakeStories";
@@ -9,6 +11,48 @@ const Container = styled.View`
   height: 230px;
   flex-direction: row;
   align-items: center;
+  background-color: #ffffff;
+`;
+
+const FakeCard = styled.View`
+  width: 110px;
+  height: 200px;
+  margin-left: 10px;
+  background-color: #ffffff;
+`;
+
+const PersonalCard = styled.View`
+  width: 110px;
+  height: 200px;
+  margin-right: 10px;
+  position: absolute;
+  z-index: 10
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+`;
+
+const PersonalCardStory = styled.Image`
+  width: 100%;
+  height: 130px;
+  border-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
+
+const PersonalCardIcon = styled.Image`
+  width: 34px;
+  height: 34px;
+  border-width: 3px;
+  border-color: #ffffff;
+  border-radius: 17px;
+  background-color: #3a86e9;
+  position: absolute;
+  top: 115px;
+  left: 40px;
 `;
 
 const UserCard = styled.View`
@@ -41,13 +85,11 @@ const UserCardFooter = styled.View`
   position: absolute;
   top: 130px;
   left: 0;
-  border: ${(props) => (props.profile ? "1px solid #dddddd" : 0)};
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
   background-color: ${(props) => (props.profile ? "#ffffff" : "transparent")};
 `;
 
 const Text = styled.Text`
+  margin: 0 10px;
   padding-top: ${(props) => (props.profile ? "155px" : "45px")};
   font-size: 12px;
   font-weight: bold;
