@@ -119,8 +119,10 @@ const Story = () => {
           left: Animations.cardLeft,
           height: Animations.cardHeight,
           borderRadius: Animations.cardRadius,
-          borderBottomLeftRadius: Animations.cardLeftRadius,
           borderTopLeftRadius: Animations.cardLeftRadius,
+          borderTopRightRadius: Animations.cardRightRadius,
+          borderBottomLeftRadius: Animations.cardLeftRadius,
+          borderBottomRightRadius: Animations.cardRightRadius,
         }}
       >
         <PersonalCardStory
@@ -133,7 +135,8 @@ const Story = () => {
             height: Animations.imageHeight,
             marginRight: Animations.imageMargin,
             marginTop: Animations.imageMargin,
-            borderRadius: Animations.imageRadius,
+            borderTopLeftRadius: Animations.imageRadius,
+            borderTopRightRadius: Animations.imageRadius,
             borderBottomLeftRadius: Animations.imageBottomRadius,
             borderBottomRightRadius: Animations.imageBottomRadius,
           }}
@@ -164,7 +167,7 @@ const Story = () => {
 
       <Animated.ScrollView
         horizontal
-        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         style={{ paddingLeft: 10, flexDirection: "row" }}
         scrollEventThrottle={5}
         onScroll={Animated.event([

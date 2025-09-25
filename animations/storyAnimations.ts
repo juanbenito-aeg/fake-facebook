@@ -40,6 +40,12 @@ export const cardLeftRadius = scroll_x.interpolate({
   extrapolate: "clamp",
 });
 
+export const cardRightRadius = scroll_x.interpolate({
+  inputRange: [0, 100],
+  outputRange: [10, 50],
+  extrapolate: "clamp",
+});
+
 // |||||||||||||||| DEFINITION OF TEXT ANIMATIONS
 
 export const textOpacity = scroll_x.interpolate({
@@ -108,13 +114,13 @@ export const imageMargin = scroll_x.interpolate({
 
 export const imageRadius = scroll_x.interpolate({
   inputRange: [0, 100],
-  outputRange: [10, 40],
+  outputRange: [10, 100],
   extrapolate: "clamp",
 });
 
 export const imageBottomRadius = scroll_x.interpolate({
   inputRange: [0, 100],
-  outputRange: [0, 40],
+  outputRange: [0, 100],
   extrapolate: "clamp",
 });
 
