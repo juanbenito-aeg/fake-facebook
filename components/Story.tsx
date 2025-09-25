@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import Animated from "react-native-reanimated";
+import { Animated } from "react-native";
 import * as Animations from "../animations/storyAnimations";
 import { ScrollView } from "react-native";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
@@ -26,7 +26,7 @@ const PersonalCard = styled.View`
   height: 200px;
   margin-right: 10px;
   position: absolute;
-  z-index: 10
+  z-index: 10;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 10px;
@@ -111,47 +111,89 @@ const UserOnCard = styled.View`
 
 const Story = () => {
   return (
-    <>
-      <Container>
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          style={{ paddingLeft: 10 }}
+    <Container>
+      <PersonalCard
+        as={Animated.View}
+        style={{
+          top: Animations.cardTop,
+          left: Animations.cardLeft,
+          height: Animations.cardHeight,
+          borderRadius: Animations.cardRadius,
+          borderBottomLeftRadius: Animations.cardLeftRadius,
+          borderTopLeftRadius: Animations.cardLeftRadius,
+        }}
+      >
+        <PersonalCardStory
+          as={Animated.Image}
+          source={require("../assets/images/story.jpg")}
+          style={{
+            top: Animations.imageTop,
+            left: Animations.imageLeft,
+            width: Animations.imageWidth,
+            height: Animations.imageHeight,
+            marginRight: Animations.imageMargin,
+            marginTop: Animations.imageMargin,
+            borderRadius: Animations.imageRadius,
+            borderBottomLeftRadius: Animations.imageBottomRadius,
+            borderBottomRightRadius: Animations.imageBottomRadius,
+          }}
+        />
+
+        <Text
+          as={Animated.Text}
+          profile={true}
+          style={{
+            opacity: Animations.textOpacity,
+            scale: Animations.textScale,
+          }}
         >
-          <UserCard>
-            <UserCardStory source={require("../assets/images/story.jpg")} />
+          Crear una historia
+        </Text>
 
-            <UserCardFooter profile={true}>
-              <Text profile={true}>Crear una historia</Text>
-            </UserCardFooter>
+        <PersonalCardIcon
+          as={Animated.View}
+          style={{
+            transform: [{ scale: Animations.iconScale }],
+            top: Animations.iconTop,
+            left: Animations.iconLeft,
+          }}
+        >
+          <MaterialCommunityIcons name="plus" size={28} color="#ffffff" />
+        </PersonalCardIcon>
+      </PersonalCard>
 
-            <UserCardPlus>
-              <MaterialCommunityIcons name="plus" size={28} color="#ffffff" />
-            </UserCardPlus>
-          </UserCard>
+      <Animated.ScrollView
+        horizontal
+        showsVerticalScrollIndicator={false}
+        style={{ paddingLeft: 10, flexDirection: "row" }}
+        scrollEventThrottle={5}
+        onScroll={Animated.event([
+          { nativeEvent: { contentOffset: { x: Animations.scroll_x } } },
+        ])}
+      >
+        <FakeCard />
 
-          {fakeStories.map((fakeStory, index) => {
-            return (
-              <UserCard key={index}>
-                <UserCardStory source={fakeStory.source} />
+        {fakeStories.map((fakeStory, index) => {
+          return (
+            <UserCard key={index}>
+              <UserCardStory source={fakeStory.source} />
 
-                <UserCardFooter profile={false}>
-                  <Text profile={false}>{fakeStory.name}</Text>
-                </UserCardFooter>
+              <UserCardFooter profile={false}>
+                <Text profile={false}>{fakeStory.name}</Text>
+              </UserCardFooter>
 
-                <UserOnCard>
-                  <Avatar
-                    source={fakeStory.user}
-                    story={true}
-                    checked={fakeStory.checked}
-                  />
-                </UserOnCard>
-              </UserCard>
-            );
-          })}
-        </ScrollView>
-      </Container>
-    </>
+              <UserOnCard>
+                <Avatar
+                  source={fakeStory.user}
+                  story={true}
+                  checked={fakeStory.checked}
+                />
+              </UserOnCard>
+            </UserCard>
+          );
+        })}
+      </Animated.ScrollView>
+    </Container>
   );
 };
 
