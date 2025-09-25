@@ -1,16 +1,15 @@
 import styled from "styled-components/native";
-import { Text } from "react-native";
+import { ScrollView } from "react-native";
 
-const View = styled.View`
-  height: 500px;
-  align-items: center;
+const Banner = styled.Image`
+  height: 225px;
 `;
 
 const Profile = () => {
   return (
-    <View>
-      <Text>Profile Screen</Text>
-    </View>
+    <ScrollView>
+      <Banner source={require("../assets/images/profile-banner.jpg")} />
+    </ScrollView>
   );
 };
 
