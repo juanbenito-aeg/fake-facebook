@@ -71,17 +71,6 @@ const UserCardStory = styled.Image`
   border-radius: 10px;
 `;
 
-const UserCardPlus = styled.View`
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  top: 115px;
-  left: 40px;
-  align-items: center;
-  border-radius: 15px;
-  background-color: #3a86e9;
-`;
-
 const UserCardFooter = styled.View`
   width: 100%;
   height: 35%;
