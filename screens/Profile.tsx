@@ -1,8 +1,12 @@
 import styled from "styled-components/native";
-import { ScrollView } from "react-native";
 import UserData from "../components/UserData";
 import FeaturedSong from "../components/FeaturedSong";
 import Actions from "../components/Actions";
+import StoryHighlights from "../components/StoryHighlights";
+
+const Container = styled.ScrollView`
+  background-color: #ffffff;
+`;
 
 const Banner = styled.Image`
   height: 225px;
@@ -16,17 +20,14 @@ const Separator = styled.View`
 
 const Profile = () => {
   return (
-    <ScrollView>
+    <Container>
       <Banner source={require("../assets/images/profile-banner.jpg")} />
-
       <UserData />
-
       <FeaturedSong />
-
       <Actions />
-
       <Separator />
-    </ScrollView>
+      <StoryHighlights />
+    </Container>
   );
 };
 
