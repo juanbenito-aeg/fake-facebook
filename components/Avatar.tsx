@@ -15,8 +15,8 @@ const Container = styled.View`
 `;
 
 const ProfileImage = styled.Image`
-  width: ${(props) => (props.profile ? 127.5 : 40)};
-  height: ${(props) => (props.profile ? 127.5 : 40)};
+  width: ${(props) => (props.profile ? 127.5 : 40)}px;
+  height: ${(props) => (props.profile ? 127.5 : 40)}px;
   margin: auto;
   border-radius: 63.75px;
   border-width: ${(props) => (props.story ? "3px" : 0)};
@@ -26,11 +26,11 @@ const ProfileImage = styled.Image`
 
 const UserActive = styled.View`
   position: absolute;
-  bottom: ${(props) => (props.profile ? 17 : -2) + "px"};
-  right: ${(props) => (props.profile ? 12 : -2) + "px"};
-  width: ${(props) => (props.profile ? 25 : 15) + "px"};
-  height: ${(props) => (props.profile ? 25 : 15) + "px"};
-  border: ${(props) => (props.profile ? 4 : 2) + "px"} solid #ffffff;
+  bottom: ${(props) => (props.profile ? 17 : -2)}px;
+  right: ${(props) => (props.profile ? 12 : -2)}px;
+  width: ${(props) => (props.profile ? 25 : 15)}px;
+  height: ${(props) => (props.profile ? 25 : 15)}px;
+  border: ${(props) => (props.profile ? 4 : 2)}px solid #ffffff;
   border-radius: 12.5px;
   background-color: #10d24b;
 `;
