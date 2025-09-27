@@ -12,8 +12,13 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import styled from "styled-components/native";
 
 SplashScreen.preventAutoHideAsync();
+
+const Container = styled.View`
+  background-color: #ffffff;
+`;
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -28,9 +33,9 @@ const App = () => {
     <>
       <StatusBar backgroundColor="#000000" barStyle="dark-content" />
 
-      <View>
+      <Container>
         <Header />
-      </View>
+      </Container>
 
       <NavigationContainer>
         <Tab.Navigator

@@ -6,6 +6,7 @@ import Avatar from "./Avatar";
 
 const Container = styled.View`
   flex: 1;
+  background-color: #ffffff;
 `;
 
 const Header = styled.View`
