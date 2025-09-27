@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "fake-facebook",
+    "name": "Fake Facebook",
     "slug": "fake-facebook",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -21,10 +21,16 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.juanbenitoaeg.fakefacebook"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "fcd3fb20-0035-4c8d-80c8-29c607520ea0"
+      }
     }
   }
 }
